@@ -1,4 +1,4 @@
-package cn.zhangwei.keyboard;
+package cn.keyboard;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.media.SoundPool;
 
 /**
  * Created by Administrator on 2017/8/7.
- * 播放声音文件
  */
 public class StartAudio {
 
@@ -23,12 +22,13 @@ public class StartAudio {
         float streamVolumeCurrent = mgr.getStreamVolume(AudioManager.STREAM_MUSIC);
         float streamVolumeMax = mgr.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         volume = streamVolumeCurrent / streamVolumeMax;
+        start();
     }
 
-    public void start(int id) {
+    public void start() {
         if (soundPool == null) {
             soundPool = new SoundPool(4, AudioManager.STREAM_MUSIC, 100);
-            loadId = soundPool.load(act, id, 1);
+            loadId = soundPool.load(act, R.raw.dtmf8, 1);
         }
     }
 
@@ -39,6 +39,5 @@ public class StartAudio {
     public void release() {
         if (soundPool != null)
             soundPool.release();
-        soundPool = null;
     }
 }

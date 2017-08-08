@@ -5,7 +5,7 @@
         android:layout_height="wrap_content">
 
     <android.inputmethodservice.KeyboardView
-            android:id="@+id/keyboard_view"
+            android:id="@+id/keyboard_view_custom"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -15,5 +15,6 @@
             android:keyBackground="@drawable/btn_keyboard_key"
             android:keyPreviewLayout="@layout/key_preview_layout"
             android:keyTextColor="@color/white"
-            android:labelTextSize="22sp"/>
+            android:labelTextSize="22sp"
+            android:visibility="gone"/>
 </RelativeLayout>

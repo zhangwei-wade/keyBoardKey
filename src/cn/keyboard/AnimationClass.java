@@ -1,4 +1,4 @@
-package cn.zhangwei.keyboard;
+package cn.keyboard;
 
 import android.content.Context;
 import android.view.View;
@@ -61,7 +61,7 @@ public class AnimationClass {
         float centerX = view.getWidth() / 2f;
         float centerY = view.getHeight() / 2f;
         final Rotate3dAnimation rotation = new Rotate3dAnimation(fromSDegrees, toSDegrees, centerX, centerY,
-                360.0f, reverse);
+                310.0f, reverse);
         // 动画持续时间300毫秒
         rotation.setDuration(duration);
         // 动画完成后保持完成的状态

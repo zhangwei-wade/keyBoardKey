@@ -1,4 +1,4 @@
-package cn.zhangwei.keyboard;
+package cn.keyboard;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;

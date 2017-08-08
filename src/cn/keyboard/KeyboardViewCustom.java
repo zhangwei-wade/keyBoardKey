@@ -1,4 +1,4 @@
-package cn.zhangwei.keyboard;
+package cn.keyboard;
 
 import android.app.Activity;
 import android.inputmethodservice.Keyboard;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.widget.EditText;
-//import com.dynamicode.sftProject.Interface.OnClickListener;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -30,20 +29,19 @@ public class KeyboardViewCustom {
 
     private EditText mEdit;
     private String TAG = "KeyboardViewCustom";
-    public StartAudio mStartAudio;
+    private StartAudio mStartAudio;
 
     public KeyboardViewCustom(Activity act) {
         this.act = act;
         k1 = new Keyboard(act, R.xml.qwerty);
         k2 = new Keyboard(act, R.xml.symbols);
-        keyboardView = (KeyboardView) act.findViewById(R.id.keyboard_view);
+        keyboardView = (KeyboardView) act.findViewById(R.id.keyboard_view_custom);
         keyboardView.setKeyboard(k2);
         keyboardView.setEnabled(true);
         keyboardView.setPreviewEnabled(true);
         keyboardView.setOnKeyboardActionListener(listener);
         onTouch(act);
         mStartAudio = new StartAudio(act);
-        mStartAudio.start(R.raw.dtmf8);
     }
 //
 //    public void setOnClickListener(OnClickListener onClickListener) {
@@ -138,7 +136,9 @@ public class KeyboardViewCustom {
             Editable editable = mEdit.getText();
             int start = mEdit.getSelectionStart();
             if (primaryCode == Keyboard.KEYCODE_DONE) {// 完成
-                keyboardView.setVisibility(View.INVISIBLE);
+//                if (onClickListener != null)
+//                    onClickListener.onClick();
+                hideKeyboard();
             } else if (primaryCode == Keyboard.KEYCODE_DELETE) {// 回退
                 if (editable != null && editable.length() > 0) {
                     if (start > 0) {
@@ -307,14 +307,13 @@ public class KeyboardViewCustom {
                 isnun = true;
                 keyboardView.setKeyboard(k2);
             }
-            // 构建3D旋转动画对象，旋转角度为270到360度，这使得ImageView将会从不可见变为可见
+            // 构建3D旋转动画对象，旋转角度为fromEDegrees到toEDegrees度，这使得ImageView将会从不可见变为可见
             AnimationClass.rotate3D(keyboardView, fromEDegrees, toEDegrees, false);
         }
 
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
-
     }
 
 }
