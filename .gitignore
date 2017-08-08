@@ -3,17 +3,7 @@
 ### Example user template
 
 # IntelliJ project files
-.idea
-*.iml
-out
-gen
-.idea/compiler.xml
-.idea/copyright/
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
+
 assets/
-bin/
 gen/cn/key/
-keydemo.iml
+bin/
